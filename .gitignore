@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/CityStructure/.vs/CityStructure/v15
+/src/CityStructure/CityStructure/obj/*
