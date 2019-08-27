@@ -9,6 +9,7 @@ namespace CityStructure
     public class Address
     {
         string StreetName;
+
         int[] StreetNr;
     }
 
