@@ -1,0 +1,62 @@
+﻿@model SchoolWebApplication2.Models.Animal
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3>More about this animal:</h3>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Photo:
+        </dt>
+        <dd>
+            <img src="@Model.PhotoLink" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Breed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Breed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateArrived)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateArrived)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>|
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>|
+    <a asp-action="Index">Back to List</a>
+</div>

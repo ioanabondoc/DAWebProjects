@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AAC-@ViewData["Title"]</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
+
+<style>
+    
+    body {
+    background-color:#deb887;
+    }
+
+    .container.body-content {
+    margin-top: 80px;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+    color: #000066;
+    font-size: 1.2em;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover {
+    color: #00004d;
+    }
+
+    .navbar {
+    border-bottom: 0.8px solid black;
+    }
+
+    footer {
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    position: relative;
+    left: 0;
+    margin-top: 30px;
+    background-color: #cc6600;
+    border-top: 0.8px solid black;
+    }
+
+    footer > div {
+    padding-top: 20px;
+    text-align: center;
+    }
+
+    footer > div > p {
+    font-size: medium;
+    display: inline;
+    padding: 0 10px;
+    }
+
+    .d-flex#short-description {
+    margin: 40px auto;
+    border: 1.5px solid black;
+    background-image: url("images/degrade-orange-texture.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    }
+
+    .d-flex#short-description::after {
+    background: url(/images/leaves.jpg);
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    }
+
+    .d-flex > div {
+    text-align: center;
+    margin: 50px 1%;
+    }
+
+    @@media (max-width:730px) {
+    .d-flex {
+    flex-direction: column;
+    }
+
+    .d-flex#short-description {
+    background-repeat: repeat-y;
+    }
+
+    .d-flex#short-description > div {
+    margin: 20px auto;
+    }
+    }
+
+    .img-circle {
+    border-radius: 50%;
+    border: 1.8px solid #000033;
+    width: 230px;
+    height: 210px;
+    }
+
+    .gallery {
+    display: grid;
+    width: 1000px;
+    margin: auto;
+    justify-content: space-around;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 50% 50%;
+    }
+
+    figure {
+        width: 250px;
+        height: auto;
+        margin: 20px 0;
+        border: 2px solid #777;
+        padding: 15px;
+        box-sizing: border-box;
+        background-color: white;
+        text-align: center;
+        font-weight:bold;
+    }
+
+    figure img {
+    width: 100%;
+    border-radius:0;
+    }
+
+    figure figcaption {
+    text-align: center;
+    font-size:120%;
+    padding: 8px 4px;
+    }
+
+    .gallery>a:hover>figure>img{
+    border-radius:50%;
+    padding:15px;
+    margin-top:-20px;
+    }
+    .gallery > a:hover > figure > figcaption{
+       margin-top:-20px;
+    }
+    .gallery > a > figure > .extra-figcaption
+    {
+        display:none;
+    }
+    .gallery > a:hover > figure > .extra-figcaption {
+        display:block;
+    }
+    .gallery a:hover {
+        font-size:medium;
+        color: purple;
+    }
+    </style>
+
+    <script>
+        (function () {
+
+            $("#dp").datepicker({
+                format: 'dd/mm/yyyy',
+                startDate: '01/01/2016',
+                endDate: ''
+            }).on("show", function () {
+                $(this).val(@DateTime.Today).datepicker('update')});
+
+        });
+    </script>
+
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-light" style="background:#e68a00">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a asp-controller="AdoptionCenter" asp-action="Home" class="navbar-brand"
+               style="font-size:25px;color:#000033">Animal Adoption Center</a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" asp-controller="AdoptionCenter" asp-action="Index">The Animals</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="AdoptionCenter" asp-action="About">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="AdoptionCenter" asp-action="Contact">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    <footer>
+        <div >
+            <p >&copy; 2019 - Adoption Center App </p>
+            <p ><i><a href="tel:0738278987"> Call us at 0738.278.987</a></i></p>
+        </div>
+    </footer>
+
+    @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
+    <environment include="Development">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

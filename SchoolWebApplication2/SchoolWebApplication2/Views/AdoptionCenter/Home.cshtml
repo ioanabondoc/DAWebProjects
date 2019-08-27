@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+
+<div id="demo" class="carousel slide" data-ride="carousel" style="width:90%;margin:auto;">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner ">
+        <div class="carousel-item active">
+            <img style="width:100%;" src="https://s.abcnews.com/images/Lifestyle/puppy-ht-3-er-170907_4x3_992.jpg" alt="First slide">
+            <div class="carousel-caption"><h3>Adopt</h3></div>
+        </div>
+
+        <div class="carousel-item">
+            <img style="width:100%;" src="~/images/kitten.jpg" alt="Second slide">
+            <div class="carousel-caption"><h3>Foster</h3></div>
+        </div>
+        <div class="carousel-item">
+            <img style="width:100%;" src="~/images/volunteering.png" alt="Third slide">
+            <div class="carousel-caption"><h3>Volunteer</h3></div>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+</div>
+
+<div class="d-flex justify-content-around" id="short-description">
+    <div class="p-2">
+        <img class="img-circle" src="~/images/dog-carrot.jpg" alt="Dog biting a carrot" />
+        <br /><br />
+        <h3>DONATE</h3>
+        <p>The AAC is a nonprofit animal rescue organization. Your donation will support our rescue and adoption programs, educational initiatives, and our spay/neuter program. Together we can make a difference.</p>
+    </div>
+    <div class="p-2">
+        <img class="img-circle" src="~/images/girl-cat.jpg" alt="Girl loving a cat" />
+        <br /><br />
+        <h3>ADOPT</h3>
+        <p>If you are looking to adopt an animal we have a variety of dogs and cats who are seeking new loving homes.  Check out the available animals, your best friend is waiting!</p>
+    </div>
+    <div class="p-2">
+        <img class="img-circle" src="~/images/man-dog-clap.jpg" alt="Man hifive-ing a dog" />
+        <br /><br />
+        <h3>VOLUNTEER</h3>
+        <p>As a nonprofit, we couldn’t survive without our volunteers, who provide care to animals and help with cleaning, administrative support, and more. You can be a part of our life-saving work.</p>
+    </div>
+</div>
+
+
+

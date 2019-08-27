@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SchoolWebApplication2.Models.Animal>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>All of our existing animals:</h3>
+
+<form asp-controller="AdoptionCenter" asp-action="Index">
+    <p>
+        Gender:<select name="SearchGender">
+            <option value="">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        Breed: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div class="gallery">
+    @foreach (var item in Model)
+    {
+        <a asp-action="Details" asp-route-id="@item.Id">
+            <figure>
+                <img src="@item.PhotoLink" />
+
+                <figcaption>@item.Name</figcaption>
+                <div class="extra-figcaption">
+                    @(item.Breed + '•' + item.Gender)
+                </div>
+
+            </figure>
+        </a>
+    }
+</div>
+
+
+<div class="cont" style="padding:30px;">
+    <div style="float:right;border-radius:18px;padding:8px;margin:10px;display:block" class="btn-primary">
+        <b><a style="color:antiquewhite" asp-action="Create">Create New</a></b>
+    </div>
+</div>
+
+
+
